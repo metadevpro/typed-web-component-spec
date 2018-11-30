@@ -1,0 +1,70 @@
+typedwebcomponents: 0.1
+components:
+  - name: acme-calendar
+    source: https://acme.com/web-components/calendar.min.js
+    description: Calendar made by ACME Corporation.
+    license: MIT
+    version: '1.0.3'
+    attributes:
+      - name: year
+        schema: 
+          type: number
+          format: int32
+        required: true
+        description: Year to show in calendar.
+      - name: month
+        schema: 
+          type: number
+          format: int32
+        required: false
+        description: Month to display in calendar (1..12). January if not provided.
+      - name: title
+        schema: 
+          type: string
+        required: false
+        description: Title in the calendar.
+    methods:
+      - name: today
+        description: Set the date to today.
+        return:
+          schema:
+            type: void
+      - name: setYear
+        description: Set the year to show in calendar.
+        parameters:
+          - name: year
+            schema:
+              type: number
+              format: int32
+            required: true
+        return:
+          schema:
+            type: void
+    events:
+      - name: on-date-selected
+        schema:
+          type: object
+          properties:
+            - name: date
+              schema: 
+                type: string
+                format: date
+      - name: on-close
+        schema:
+          type: void
+      - name: on-next-month
+        schema:
+          type: object
+          properties:
+            - name: date
+              schema: 
+                type: string
+                format: date
+  - name: acme-timepicker
+    source: https://acme.com/web-components/timepicker.min.js
+    description: Timepicker by ACME Corporation.
+    license: MIT
+    version: '2.5.1'
+    attributes:
+    methods:
+    events:
